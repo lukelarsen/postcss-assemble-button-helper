@@ -2,13 +2,10 @@ var postcss = require('postcss');
 
 module.exports = postcss.plugin('assemble-button-helper', function (options) {
     return function (css) {
-console.log('work!');
 
         css.walkRules(function (rule) {
             var notificationRule = rule.selector;
             var ruleScan = '';
-
-            console.log('hello');
 
             if (notificationRule.indexOf('.btn--') > -1) {
 
@@ -39,7 +36,7 @@ console.log('work!');
 
                     // Border Color
                     if (property == 'border-color') {
-                        // add background-color styles
+                        // add border-color styles
                         decl.cloneBefore({ prop: 'border-color',  value: value });
 
                         // Remove the original declaration
